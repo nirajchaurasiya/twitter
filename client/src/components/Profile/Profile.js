@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Posts from '../Posts/Posts';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
@@ -11,7 +11,7 @@ export default function Profile({ data }) {
     const { id } = useParams();
 
     const REACT_APP_API_URL = process.env.REACT_APP_API_URL
-    const handleUserProfileUpdate = () => {
+    const handleUserProfileUpdate = useCallback(() => {
         try {
             setLoader(true)
             if (profilePicture) {
@@ -37,9 +37,9 @@ export default function Profile({ data }) {
         } catch (error) {
 
         }
-    }
+    }, [profilePicture, user._id, REACT_APP_API_URL])
 
-    const handleUserCoverUpdate = () => {
+    const handleUserCoverUpdate = useCallback(() => {
         try {
             setLoader(true)
             if (profilePicture) {
@@ -65,9 +65,9 @@ export default function Profile({ data }) {
         } catch (error) {
 
         }
-    }
+    }, [profilePicture, user._id, REACT_APP_API_URL])
 
-    const fetchAllTweets = () => {
+    const fetchAllTweets = useCallback(() => {
         try {
             axios.get(`${REACT_APP_API_URL}/api/tweet/alltweet`)
                 .then((data) => {
@@ -84,8 +84,10 @@ export default function Profile({ data }) {
         } catch (error) {
             console.log(error)
         }
-    }
-    const getUser = (id) => {
+    }, [setAllTweets, REACT_APP_API_URL])
+
+
+    const getUser = useCallback((id) => {
         try {
             axios.get(`${REACT_APP_API_URL}/api/user/${id}`)
                 .then((data) => {
@@ -104,16 +106,17 @@ export default function Profile({ data }) {
         } catch (error) {
             console.log(error)
         }
-    }
+    }, [setUser, setUserDoesntExistData, REACT_APP_API_URL])
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchTweetsAndUser = async () => {
             await fetchAllTweets();
             await getUser(id);
+            setLoader(false);
         };
-        fetchData();
-        setLoader(true)
-    }, [fetchAllTweets, getUser, id]);
+        fetchTweetsAndUser();
+    }, [id, fetchAllTweets, getUser]);
+
 
 
     if (userDoesntExistData) {

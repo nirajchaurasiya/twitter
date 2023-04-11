@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import './Rightbar.css'
 import { Link } from 'react-router-dom'
 import {
@@ -42,7 +42,7 @@ export default function Rightbar({ explore, profile }) {
             console.log(error);
         }
     };
-    const fetchAllUsers = () => {
+    const fetchAllUsers = useCallback(() => {
         try {
             axios.get(`${REACT_APP_API_URL}/api/user/getalluser/getalluser`)
                 .then((data) => {
@@ -55,7 +55,7 @@ export default function Rightbar({ explore, profile }) {
         } catch (error) {
             console.log(error)
         }
-    }
+    }, [setAllUsers, REACT_APP_API_URL])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -63,6 +63,8 @@ export default function Rightbar({ explore, profile }) {
         };
         fetchData();
     }, [fetchAllUsers]);
+
+
 
     return (
         <div className='_right_bar_'>
