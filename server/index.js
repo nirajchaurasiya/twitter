@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }))
 const corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: 'https://twiittr.netlify.app'
     // origin: 'https://twitter-6tvv.onrender.com'
 };
 app.use(cors(corsOptions));
