@@ -39,17 +39,7 @@ export default function Register() {
                 })
                 axios.post(`${REACT_APP_API_URL}/api/auth/register`, fd)
                     .then((data) => {
-                        if (data.data.status === "1") {
-                            alert(data.data.msg)
-                        }
-                        else if (data.data.status === "0") {
-                            alert(data.data.msg)
-                        }
-                        else if (data.data.status === "2") {
-                            alert(data.data.msg)
-                        } else {
-                            alert("Something went wrong")
-                        }
+                        alert(data.data.msg)
                         setShowLoadingSpinner(false)
                     })
                     .catch((err) => {

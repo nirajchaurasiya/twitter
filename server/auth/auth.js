@@ -19,6 +19,8 @@ Router.post('/register', upload.single('profilePicture'), async (req, res) => {
                 await UserSchema.create({ ...datas, profilePicture: req.file.path });
                 res.send({ "status": "1", "msg": "Successfully created account. You can login now." })
             }
+        } else {
+            res.send({ "status": "3", "msg": "Please fill all the fields" });
         }
 
     } catch (error) {
