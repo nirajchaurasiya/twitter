@@ -9,12 +9,14 @@ import axios from "axios";
 import Posts from "../Posts/Posts";
 export default function Homepage({ user }) {
     const [image, setImage] = useState("");
+    const [loader, setLoader] = useState(true)
     const [allTweets, setAllTweets] = useState([]);
     const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
     const title = useRef();
     const userId = user._id;
     const handleTweets = () => {
         try {
+            setLoader(true)
             if (!image || !title || !title) {
                 alert("Please fill up all fields");
             } else {
@@ -28,13 +30,16 @@ export default function Homepage({ user }) {
                     .post(`${REACT_APP_API_URL}/api/tweet`, fd)
                     .then((data) => {
                         fetchAllTweets();
+                        setLoader(false)
                     })
                     .catch((err) => {
                         console.log("Err");
+                        setLoader(false)
                     });
             }
         } catch (error) {
             console.log(error);
+            setLoader(false);
         }
     };
     const fetchAllTweets = async () => {
@@ -46,6 +51,7 @@ export default function Homepage({ user }) {
                         setAllTweets(tweets.sort(function (a, b) {
                             return new Date(b.createdAt) - new Date(a.createdAt);
                         }))
+                        setLoader(false)
                     })
                     .catch((err) => {
                         console.log("Err")
@@ -58,9 +64,18 @@ export default function Homepage({ user }) {
     }
     useEffect(() => {
         fetchAllTweets();
+        setLoader(true)
         // eslint-disable-next-line
     }, [user._id])
+    if (loader) {
+        return (
+            <div>
+                <div className="spinner">
 
+                </div>
+            </div>
+        )
+    }
     return (
         <div className="actual_main_content">
             <div className="main_content_header">

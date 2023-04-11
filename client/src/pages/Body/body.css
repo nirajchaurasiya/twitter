@@ -3,3 +3,35 @@
   width: 80vw;
   margin: auto;
 }
+@media (max-width: 1450px) {
+  ._body_ {
+    width: 90vw;
+  }
+}
+@media (max-width: 1250px) {
+  .navabr_nav {
+    width: 100vw !important;
+  }
+  ._body_ {
+    width: 100vw;
+  }
+  .profile span {
+    display: none;
+  }
+  .profile p {
+    display: none;
+  }
+  .profile {
+    width: 50px;
+  }
+  .btn_show_more button {
+    display: none;
+  }
+  ._side_bar_ {
+    flex: 0.2 !important;
+    overflow-x: hidden;
+  }
+  ._right_bar_ {
+    display: none;
+  }
+}

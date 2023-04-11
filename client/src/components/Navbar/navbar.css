@@ -77,3 +77,8 @@
 .profile_dropdown .user_information p {
   font-weight: 600;
 }
+@media (max-width: 1450px) {
+  .navabr_nav {
+    width: 90vw;
+  }
+}

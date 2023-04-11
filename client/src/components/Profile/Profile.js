@@ -6,6 +6,7 @@ export default function Profile({ data }) {
     const [profilePicture, setProfilePicture] = useState('')
     const [allTweets, setAllTweets] = useState([])
     const [userDoesntExistData, setUserDoesntExistData] = useState(false)
+    const [loader, setLoader] = useState(true)
     const [user, setUser] = useState([])
     const { id } = useParams();
     console.log(id)
@@ -13,6 +14,7 @@ export default function Profile({ data }) {
     const REACT_APP_API_URL = process.env.REACT_APP_API_URL
     const handleUserProfileUpdate = () => {
         try {
+            setLoader(true)
             if (profilePicture) {
                 const fd = new FormData();
                 fd.append('profilePicture', profilePicture)
@@ -40,6 +42,7 @@ export default function Profile({ data }) {
 
     const handleUserCoverUpdate = () => {
         try {
+            setLoader(true)
             if (profilePicture) {
                 const fd = new FormData();
                 fd.append('coverProfile', profilePicture)
@@ -73,6 +76,7 @@ export default function Profile({ data }) {
                     setAllTweets(tweets.sort(function (a, b) {
                         return new Date(b.createdAt) - new Date(a.createdAt);
                     }))
+                    setLoader(false)
                 })
                 .catch((err) => {
                     console.log("Err")
@@ -89,6 +93,7 @@ export default function Profile({ data }) {
                     if (data.data.status === "1") {
                         setUser(data.data.msg)
                         setUserDoesntExistData(false)
+                        setLoader(false)
                     }
                     else if (data.data.status === "0") {
                         setUserDoesntExistData(true)
@@ -105,6 +110,7 @@ export default function Profile({ data }) {
     useEffect(() => {
         getUser(id);
         fetchAllTweets();
+        setLoader(true)
     }, [id])
     if (userDoesntExistData) {
         return (
@@ -112,6 +118,13 @@ export default function Profile({ data }) {
                 User doesn't exist
             </div>
 
+        )
+    }
+    if (loader) {
+        return (
+            <div>
+                <div className='spinner'></div>
+            </div>
         )
     }
     return (
