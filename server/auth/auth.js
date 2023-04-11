@@ -9,10 +9,10 @@ Router.post('/register', upload.single('profilePicture'), async (req, res) => {
         const { email, username, password } = req.body
         if (!email || !username || !password) {
             if (await UserSchema.findOne({ email: email })) {
-                res.send({ "status": 0, "msg": "Email already exists" })
+                res.send({ "status": "0", "msg": "Email already exists" })
             }
             else if (await UserSchema.findOne({ username: username })) {
-                res.send({ "status": 2, "msg": "Username already exists" })
+                res.send({ "status": "2", "msg": "Username already exists" })
             }
             else {
                 const datas = req.body
