@@ -56,9 +56,14 @@ export default function Rightbar({ explore, profile }) {
             console.log(error)
         }
     }
+
     useEffect(() => {
-        fetchAllUsers();
-    }, [])
+        const fetchData = async () => {
+            await fetchAllUsers();
+        };
+        fetchData();
+    }, [fetchAllUsers]);
+
     return (
         <div className='_right_bar_'>
             <div className="right_bar_content">

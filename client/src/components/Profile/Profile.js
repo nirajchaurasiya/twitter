@@ -9,7 +9,6 @@ export default function Profile({ data }) {
     const [loader, setLoader] = useState(true)
     const [user, setUser] = useState([])
     const { id } = useParams();
-    console.log(id)
 
     const REACT_APP_API_URL = process.env.REACT_APP_API_URL
     const handleUserProfileUpdate = () => {
@@ -108,10 +107,15 @@ export default function Profile({ data }) {
     }
 
     useEffect(() => {
-        getUser(id);
-        fetchAllTweets();
+        const fetchData = async () => {
+            await fetchAllTweets();
+            await getUser(id);
+        };
+        fetchData();
         setLoader(true)
-    }, [id])
+    }, [fetchAllTweets, getUser, id]);
+
+
     if (userDoesntExistData) {
         return (
             <div style={{ fontSize: "20px", fontWeight: "700", marginTop: "10vh", textAlign: "center" }}>
