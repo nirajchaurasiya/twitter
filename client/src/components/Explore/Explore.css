@@ -1,0 +1,31 @@
+.explore_page {
+  padding: 15px;
+}
+.mid_explore_page .search_bar input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 60px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid rgb(83, 83, 83);
+  font-size: 18px;
+}
+.mid_explore_page .search_bar input:focus {
+  outline: 2px solid rgb(4, 251, 255);
+}
+
+.trending_peoples {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 10px;
+}
+
+.trending_peoples .trending_people_image img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}

@@ -1,0 +1,79 @@
+.navabr_nav {
+  /* background-color: aliceblue; */
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  margin: auto;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-color);
+  box-shadow: 0px 1px 0px rgb(90, 90, 90);
+}
+
+.navbar_first_content {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.navbar_first_content li {
+  display: flex;
+  cursor: pointer;
+}
+.navbar_first_content li {
+  font-size: 20px;
+}
+.navbar_first_content li:first-child {
+  font-size: 24px;
+  color: rgb(0, 255, 213);
+}
+.navbar_second_nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar_second_nav li {
+  display: flex;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.navbar_second_nav li:last-child {
+  font-size: 20px;
+}
+.navbar_second_nav li img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+.profile_dropdown {
+  position: absolute;
+  height: 50%;
+  padding: 20px;
+  right: 10%;
+  z-index: 100;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.profile_dropdown .user_information {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 50px;
+  gap: 0.6rem;
+  background-color: rgb(122, 122, 122);
+}
+.profile_dropdown .user_information:hover {
+  background-color: rgb(112, 112, 112);
+}
+.profile_dropdown .user_information img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.profile_dropdown .user_information p {
+  font-weight: 600;
+}

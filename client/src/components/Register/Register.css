@@ -1,0 +1,42 @@
+.mid_Signup_div {
+  display: flex;
+  height: 65vh;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
+}
+.mid_Signup_div p {
+  font-size: 25px;
+  font-weight: 600;
+}
+.input_Signup {
+  display: grid;
+  gap: 1rem;
+}
+
+.input_Signup input {
+  padding: 10px;
+  width: 30vw;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.input_Signup input:focus {
+  outline: 2px solid blue;
+}
+.input_Signup button {
+  padding: 10px;
+  width: 30vw;
+  cursor: pointer;
+}
+.dont_have_an_acc {
+  margin-top: 1vh;
+  display: grid;
+  gap: 1rem;
+}
+.dont_have_an_acc button {
+  padding: 10px;
+  width: 30vw;
+  cursor: pointer;
+}

@@ -1,0 +1,49 @@
+._right_bar_ {
+  flex: 1;
+  position: sticky;
+  height: calc(100vh - 60px);
+  top: 60px;
+  overflow-y: scroll;
+}
+
+.right_bar_content {
+  padding: 10px;
+  display: grid;
+  gap: 2rem;
+}
+.search_icon_input {
+  border: 1px solid rgb(60, 59, 59);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 9px;
+  border-radius: 30px;
+}
+.search_icon_input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.actual_content_right_bar {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(22, 24, 28);
+  display: grid;
+  gap: 1.5rem;
+  color: #fff;
+}
+
+.actual_content_right_bar .issue_right_bar {
+  cursor: pointer;
+  color: #fff;
+}
+.actual_content_right_bar .issue_right_bar p {
+  font-size: 18px;
+  font-weight: 500;
+}
+.actual_content_right_bar .issue_right_bar span {
+  font-size: 13px;
+  font-weight: 400;
+}

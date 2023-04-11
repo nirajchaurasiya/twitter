@@ -1,0 +1,75 @@
+._side_bar_ {
+  flex: 0.7;
+  position: sticky;
+  height: calc(100vh - 60px);
+  top: 60px;
+  overflow-y: scroll;
+}
+.sidebar_content {
+  padding: 10px;
+  margin-top: 8%;
+  display: grid;
+  gap: 1.5rem;
+}
+._side_bar_ .sidebar_content .profile {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 3px;
+}
+
+._side_bar_ .sidebar_content .profile:first-child {
+  border: 1px solid rgb(60, 59, 59);
+  cursor: pointer;
+  border-radius: 35px;
+  padding: 10px 10px;
+}
+._side_bar_ .sidebar_content .profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+._side_bar_ .sidebar_content .profile p {
+  font-size: 14px;
+  font-weight: 500;
+}
+._side_bar_ .sidebar_content .profile {
+  cursor: pointer;
+}
+._sideBar_hr_ {
+  height: 0.3px;
+  border: 1px solid rgb(44, 42, 42);
+  width: 95%;
+  margin: auto;
+}
+.profile h2 {
+  display: flex;
+}
+
+.all_settings_required .profile:first-child {
+  border: none !important;
+}
+.all_settings_required {
+  display: grid;
+  gap: 1rem;
+  font-size: 23px;
+}
+.all_settings_required .profile {
+  padding: 9px !important;
+}
+.all_settings_required .profile:hover {
+  background-color: rgb(237, 235, 235);
+  border-radius: 30px;
+  color: black;
+}
+.btn_show_more button {
+  width: 100%;
+  background-color: rgb(0, 157, 255);
+  border: none;
+  padding: 13px 12px;
+  border-radius: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+}
