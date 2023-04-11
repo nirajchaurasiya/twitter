@@ -65,7 +65,7 @@ export default function Profile({ data }) {
         }
     }
 
-    const fetchAllTweets = async () => {
+    const fetchAllTweets = () => {
         try {
             axios.get(`${REACT_APP_API_URL}/api/tweet/alltweet`)
                 .then((data) => {
