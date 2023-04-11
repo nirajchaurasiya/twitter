@@ -7,7 +7,7 @@ const upload = require('../multer/UserpicUpload')
 Router.post('/register', upload.single('profilePicture'), async (req, res) => {
     try {
         const { email, username, password } = req.body
-        if (!email || !username || !password) {
+        if (email || username || password) {
             if (await UserSchema.findOne({ email: email })) {
                 res.send({ "status": "0", "msg": "Email already exists" })
             }
