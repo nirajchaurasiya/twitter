@@ -16,7 +16,7 @@ export default function Maincontent({ profile, explore, notifications, messages,
         <>
             <div className='_main_content_'>
                 {profile ?
-                    <Profile />
+                    <Profile data={user} />
                     :
                     explore ?
                         <Explore />

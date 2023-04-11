@@ -1,3 +1,4 @@
+import React from 'react'
 import './sidebar.css'
 import { AiOutlineMenu, AiOutlineSetting } from 'react-icons/ai'
 import { BiCode, BiHash, BiHome, BiMessage, BiNotification, BiSupport } from 'react-icons/bi'
@@ -6,13 +7,14 @@ import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 export default function Sidebar() {
     const { user } = useContext(AuthContext);
+    const REACT_APP_API_URL = process.env.REACT_APP_API_URL
     return (
         <div className='_side_bar_'>
             <div className="sidebar_content">
                 <div style={{ display: "grid", gap: "1rem" }}>
                     <NavLink to={`/profile/${user._id}`} style={{ color: "var(--text-color)", textDecoration: "none" }}>
                         <div className="profile">
-                            <img src={'/' + user.profilePicture} alt="" />
+                            <img src={`${REACT_APP_API_URL}/` + user.profilePicture} alt="" />
                             <p>{user.name}</p>
 
                         </div>

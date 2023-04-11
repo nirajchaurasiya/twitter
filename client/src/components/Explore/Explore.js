@@ -1,3 +1,4 @@
+import React from 'react'
 import './Explore.css'
 import { BiTrendingUp } from 'react-icons/bi'
 export default function Explore() {

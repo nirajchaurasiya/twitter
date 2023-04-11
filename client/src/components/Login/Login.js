@@ -5,6 +5,7 @@ import axios from 'axios';
 export default function Login() {
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false)
     const email = useRef();
+    const REACT_APP_API_URL = process.env.REACT_APP_API_URL
     const password = useRef();
     const handleLogin = () => {
         try {
@@ -17,7 +18,7 @@ export default function Login() {
                     email: email.current.value,
                     password: password.current.value
                 }
-                axios.post('/api/auth/login', loginData)
+                axios.post(`${REACT_APP_API_URL}/api/auth/login`, loginData)
                     .then((data) => {
                         console.log(data.data)
                         setShowLoadingSpinner(false)

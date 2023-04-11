@@ -40,8 +40,24 @@ Router.post('/updatecover/:userId', upload.single('coverProfile'), async (req, r
     }
 })
 
+Router.get('/:userId', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const isUserIdExist = await UserSchema.findById(userId);
+        if (isUserIdExist) return res.send({ "status": "1", "msg": isUserIdExist })
+    } catch (error) {
+        res.send({ "status": "0", "msg": "UserId doesn't exist" });
+    }
+})
 
 
-
+Router.get('/getalluser/getalluser', async (req, res) => {
+    try {
+        const userData = await UserSchema.find();
+        res.send({ "status": "1", "msg": userData })
+    } catch (error) {
+        res.send({ "status": "0", "msg": "Something went wrong" });
+    }
+})
 
 module.exports = Router 

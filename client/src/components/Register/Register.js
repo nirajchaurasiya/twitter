@@ -5,6 +5,7 @@ import axios from 'axios'
 export default function Register() {
     const [profilePicture, setProfilePicture] = useState('')
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false)
+    const REACT_APP_API_URL = process.env.REACT_APP_API_URL
     const name = useRef();
     const email = useRef();
     const username = useRef();
@@ -36,9 +37,19 @@ export default function Register() {
                 fd.forEach(e => {
                     console.log(e)
                 })
-                axios.post('/api/auth/register', fd)
+                axios.post(`${REACT_APP_API_URL}/api/auth/register`, fd)
                     .then((data) => {
-                        console.log(data.data)
+                        if (data.data.status === "1") {
+                            alert(data.data.msg)
+                        }
+                        else if (data.data.status === "0") {
+                            alert(data.data.msg)
+                        }
+                        else if (data.data.status === "2") {
+                            alert(data.data.msg)
+                        } else {
+                            alert("Something went wrong")
+                        }
                         setShowLoadingSpinner(false)
                     })
                     .catch((err) => {

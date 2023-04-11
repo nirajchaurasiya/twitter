@@ -13,6 +13,8 @@ export default function App() {
       document.body.classList.add('dark');
       localStorage.setItem('twittercolormode', 'dark')
     }
+
+
   }, [])
 
 

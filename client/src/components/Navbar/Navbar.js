@@ -7,6 +7,7 @@ export default function Navbar() {
     const { user } = useContext(AuthContext);
     const [colorModeIcon, setColorModeIcon] = useState('🌜');
     const [toggleProfile, setToggleProfile] = useState(false)
+    const REACT_APP_API_URL = process.env.REACT_APP_API_URL
     const changeTheClass = () => {
         if (localStorage.getItem('twittercolormode') === 'light') {
             document.body.classList.remove('light');
@@ -41,14 +42,14 @@ export default function Navbar() {
                     <li>Twitter</li>
                 </ul>
                 <ul className="navbar_second_nav">
-                    {user ? <li><img onClick={toggleProfilee} src={`/` + user?.profilePicture} alt="" title='profile' /></li> : <Link to='/login'><button style={{ padding: "3px 10px" }}>Login</button></Link>}
+                    {user ? <li><img onClick={toggleProfilee} src={`${REACT_APP_API_URL}/${user?.profilePicture}`} alt="" title='profile' /></li> : <Link to='/login'><button style={{ padding: "3px 10px" }}>Login</button></Link>}
                     <li onClick={changeTheClass} title={colorModeIcon === '🌜' ? "toggle dark" : "toggle light"}>{colorModeIcon}</li>
                 </ul>
             </div>
             {toggleProfile && <div className="profile_dropdown">
                 <NavLink style={{ color: "var(--text-color)", textDecoration: "none" }} to={`/profile/` + user._id}>
                     <div className="user_information">
-                        <img src={`/` + user.profilePicture} alt="profile" />
+                        <img src={`${REACT_APP_API_URL}/${user.profilePicture}`} alt="profile" />
                         <p>{user.name}</p>
                     </div>
                 </NavLink>

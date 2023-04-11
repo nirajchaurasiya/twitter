@@ -47,3 +47,20 @@
   font-size: 13px;
   font-weight: 400;
 }
+.all_users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.mid_all_users {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.mid_all_users .users_images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
