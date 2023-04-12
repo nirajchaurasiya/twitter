@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Explore.css'
 import { BiTrendingUp } from 'react-icons/bi'
 export default function Explore() {
+    useEffect(() => {
+        document.title = "Twitter / Explore"
+    }, [])
     return (
         <div className="explore_page">
             <div className="mid_explore_page">

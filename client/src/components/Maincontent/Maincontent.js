@@ -10,7 +10,8 @@ import Support from '../Supports/Support'
 import Setting from '../Setting/Setting'
 import Notifications from '../Notifications/Notifications'
 import { AuthContext } from '../../context/AuthContext'
-export default function Maincontent({ profile, explore, notifications, messages, support, setting }) {
+import Singlepost from '../SingalPost/Singlepost'
+export default function Maincontent({ profile, explore, notifications, messages, support, setting, singlepost }) {
     const { user } = useContext(AuthContext)
     return (
         <>
@@ -24,7 +25,7 @@ export default function Maincontent({ profile, explore, notifications, messages,
                         notifications ?
                             <Notifications /> :
                             messages ? <Message /> :
-                                support ? <Support /> : setting ? <Setting /> : <Homepage user={user} />
+                                support ? <Support /> : setting ? <Setting /> : singlepost ? <Singlepost /> : <Homepage user={user} />
                 }
             </div>
         </>

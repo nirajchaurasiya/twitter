@@ -15,6 +15,25 @@ const TweetSchema = mongoose.Schema({
             comment: String,
             _id: String,
             picture: String,
+            like: [String],
+            dislike: [String],
+            updatedAt: {
+                type: Date,
+            },
+            reply:
+                [
+                    {
+                        name: String,
+                        comment: String,
+                        _id: String,
+                        picture: String,
+                        like: [String],
+                        dislike: [String],
+                        time: {
+                            type: Date,
+                        },
+                    }
+                ]
         }
     ],
     userId: {

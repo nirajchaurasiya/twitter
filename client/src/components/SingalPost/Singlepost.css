@@ -1,0 +1,26 @@
+.single_posts {
+  padding: 10px;
+}
+.reply_like {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.reply_like input {
+  background-color: transparent;
+  border: 1px solid #333;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+.reply_like button {
+  width: 15%;
+  padding: 5px;
+  border-radius: 5px;
+}
+.comments_user {
+  display: grid;
+  gap: 1.5rem;
+}

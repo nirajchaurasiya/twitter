@@ -35,3 +35,27 @@
     display: none;
   }
 }
+@media (max-width: 750px) {
+  .all_settings_required {
+    display: grid;
+    gap: 1rem;
+    font-size: 15px !important;
+  }
+  .all_settings_required .profile:hover {
+    background-color: rgb(237, 235, 235);
+    border-radius: 50%;
+    width: fit-content;
+    color: black;
+  }
+  ._side_bar_ .sidebar_content .profile img {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50%;
+  }
+  ._side_bar_ .sidebar_content .profile:first-child {
+    border: 1px solid transparent !important;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 5px 5px !important;
+  }
+}

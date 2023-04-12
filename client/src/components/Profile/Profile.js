@@ -67,9 +67,10 @@ export default function Profile({ data }) {
         }
     }, [profilePicture, user._id, REACT_APP_API_URL])
 
+
     const fetchAllTweets = useCallback(() => {
         try {
-            axios.get(`${REACT_APP_API_URL}/api/tweet/alltweet`)
+            axios.get(`${REACT_APP_API_URL}/api/tweet/alltweet/${user._id}`)
                 .then((data) => {
                     const tweets = data.data.tweets;
                     setAllTweets(tweets.sort(function (a, b) {
@@ -84,7 +85,8 @@ export default function Profile({ data }) {
         } catch (error) {
             console.log(error)
         }
-    }, [setAllTweets, REACT_APP_API_URL])
+
+    }, [setAllTweets, REACT_APP_API_URL, user._id])
 
 
     const getUser = useCallback((id) => {
@@ -98,6 +100,7 @@ export default function Profile({ data }) {
                     }
                     else if (data.data.status === "0") {
                         setUserDoesntExistData(true)
+                        setLoader(false)
                     }
                 })
                 .catch((err) => {
@@ -112,17 +115,19 @@ export default function Profile({ data }) {
         const fetchTweetsAndUser = async () => {
             await fetchAllTweets();
             await getUser(id);
-            setLoader(false);
         };
+        setLoader(true);
         fetchTweetsAndUser();
-    }, [id, fetchAllTweets, getUser]);
 
+        document.title = `Twitter / ${user.name}`
+    }, [fetchAllTweets, getUser, id, user.name]);
 
 
     if (userDoesntExistData) {
         return (
-            <div style={{ fontSize: "20px", fontWeight: "700", marginTop: "10vh", textAlign: "center" }}>
-                User doesn't exist
+            <div style={{ fontSize: "20px", fontWeight: "700", textAlign: "center" }}>
+                <img src="/assests/usernotfound.jpeg" alt="" style={{ width: "80%" }} />
+                <p>User doesn't exist</p>
             </div>
 
         )
@@ -188,7 +193,10 @@ export default function Profile({ data }) {
             </div>
 
             {
-                allTweets.length !== 0 ? allTweets.map(e => (<Posts key={e?._id} data={e} />)) : "No tweets found"
+                allTweets.length !== 0 ? allTweets.map(e => (<Posts key={e?._id} data={e} />)) :
+                    <div style={{ fontSize: "19px", textAlign: "center" }}>
+                        <img src="/assests/notweets.jpeg" alt="" style={{ width: "100%" }} />
+                    </div>
             }
 
         </>

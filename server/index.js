@@ -28,6 +28,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 app.use('/api/auth', require('./auth/auth'));
 app.use('/api/user', require('./user/user'));
 app.use('/api/tweet', require('./tweets/Tweets'));
+app.use('/api/post', require('./post/post'));
 app.get('/', (req, res) => {
     res.send({ "msg": "success" })
 })

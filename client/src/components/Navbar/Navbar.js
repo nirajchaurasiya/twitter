@@ -38,7 +38,7 @@ export default function Navbar() {
         <>
             <div className='navabr_nav'>
                 <ul className='navbar_first_content'>
-                    <li><AiOutlineTwitter /></li>
+                    <li>{colorModeIcon === '🌜' ? <AiOutlineTwitter style={{ color: "blue", fontSize: "25px" }} /> : <img src="/assests/logo.png" alt="" style={{ width: "30px" }} />}</li>
                     <li>Twitter</li>
                 </ul>
                 <ul className="navbar_second_nav">

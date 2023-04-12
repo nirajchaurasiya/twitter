@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
     AiOutlineGift,
     AiOutlineHeart,
@@ -42,9 +42,9 @@ export default function Homepage({ user }) {
             setLoader(false);
         }
     };
-    const fetchAllTweets = async () => {
+    const fetchAllTweets = useCallback((id) => {
         try {
-            if (user._id) {
+            if (id) {
                 axios.get(`${REACT_APP_API_URL}/api/tweet/alltweet`)
                     .then((data) => {
                         const tweets = data.data.tweets;
@@ -61,12 +61,17 @@ export default function Homepage({ user }) {
         } catch (error) {
             console.log(error)
         }
-    }
+    }, [REACT_APP_API_URL])
+
+
     useEffect(() => {
-        fetchAllTweets();
+        const fetchAll = async (id) => {
+            await fetchAllTweets(id);
+        }
         setLoader(true)
-        // eslint-disable-next-line
-    }, [user._id])
+        fetchAll(user._id);
+        document.title = `Twitter / Home`
+    }, [user._id, fetchAllTweets])
     if (loader) {
         return (
             <div>
@@ -139,7 +144,9 @@ export default function Homepage({ user }) {
                             <Posts key={e?._id} data={e} />
                         )
                     })
-                        : <div style={{ fontSize: "19px", textAlign: "center", marginTop: "10vh" }}>No Tweets</div>}
+                        : <div style={{ fontSize: "19px", textAlign: "center", marginTop: "2%" }}>
+                            <img src="/assests/notweets.jpeg" alt="" style={{ width: "80%" }} />
+                        </div>}
             </div>
         </div>
     );

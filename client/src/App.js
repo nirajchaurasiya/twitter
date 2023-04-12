@@ -29,6 +29,7 @@ export default function App() {
         <Route path='/messages' key="messages" element={user ? <Body messages={true} /> : <Login />} />
         <Route path='/support' key="support" element={user ? <Body support={true} /> : <Login />} />
         <Route path='/setting' key="setting" element={user ? <Body setting={true} /> : <Login />} />
+        <Route path='/post/:postId' key="SinglePost" element={<Body singlepost={true} />} />
         <Route path='/login' key="login" element={<Login />} />
         <Route path='/register' key="register" element={<Register />} />
       </Routes>
