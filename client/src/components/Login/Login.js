@@ -61,6 +61,13 @@ export default function Login() {
                         <input ref={email} type="email" name="email" id="email" placeholder='Enter email' />
                         <input ref={password} type="password" placeholder='Enter password' />
                         <button onClick={handleLogin}>Login</button>
+                        <h4>
+                            Demo Account:
+                            <br />
+                            Email: iamuser@gmail.com
+                            <br />
+                            password: iamuser
+                        </h4>
                     </div>
                     <div className="dont_have_an_acc">
                         <p>Don't have an account?</p>
