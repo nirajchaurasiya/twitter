@@ -29,8 +29,13 @@ export default function Navbar() {
             if (mode === 'dark') {
                 setColorModeIcon('🌞')
             }
+
         }
+
+
     }, [])
+
+
     const toggleProfilee = () => {
         setToggleProfile(!toggleProfile)
     }
