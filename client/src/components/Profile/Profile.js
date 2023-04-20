@@ -181,7 +181,7 @@ export default function Profile({ data }) {
                         Status: Married
                     </p>
                     <p>
-                        Website: <a target='_blank' rel="noreferrer" style={{ color: "var(--text-color)" }} href="https://nirajchaurasiya.com">{user?.website}</a>
+                        Website: <a target='_blank' rel="noreferrer" style={{ color: "var(--text-color)" }} href={user?.website}>{user?.website}</a>
                     </p>
                     <p>
                         Followers: {user?.followers?.length}
