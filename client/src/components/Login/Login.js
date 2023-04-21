@@ -66,7 +66,7 @@ export default function Login() {
                             <br />
                             Email: iamuser@gmail.com
                             <br />
-                            password: iamuser
+                            password: 123456
                         </h4>
                     </div>
                     <div className="dont_have_an_acc">
