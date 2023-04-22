@@ -205,7 +205,7 @@ export default function Rightbar({ explore, profile }) {
                                                 <img src="/assests/profile.jpeg" alt="" />
                                             </div>
                                             <div className="users_name" style={{ display: "grid", gap: ".3rem" }}>
-                                                <p>Niraj Kumar Chaurasiya</p>
+                                                <p>User 1</p>
                                                 <p style={{ fontSize: "13px", fontFamily: "sans-serif" }}>Follower : 0</p>
                                                 <p style={{ fontSize: "13px", fontFamily: "sans-serif" }}>Following : 0</p>
                                             </div>
