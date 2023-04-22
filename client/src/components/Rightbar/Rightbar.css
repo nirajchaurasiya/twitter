@@ -48,8 +48,7 @@
   font-weight: 400;
 }
 .all_users {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 1rem;
 }
 .mid_all_users {
