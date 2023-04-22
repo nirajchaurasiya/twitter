@@ -180,7 +180,7 @@ export default function Rightbar({ explore, profile }) {
                         </div>
                         <div className="all_users">
                             <h3>All Users</h3>
-
+                            <br />
                             {allUsers?.map(e => {
                                 return (
                                     <Link key={e._id} to={`/profile/${e?._id}`} style={{ color: "var(--text-color)", textDecoration: "none" }}>
