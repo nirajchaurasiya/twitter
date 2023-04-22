@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }))
 const corsOptions = {
-    origin: 'https://twiittr.netlify.app'
-    // origin: 'http://localhost:3000'
+    // origin: 'https://twiittr.netlify.app'
+    origin: 'http://localhost:3000'
 };
 app.use(cors(corsOptions));
 app.use(function (req, res, next) {

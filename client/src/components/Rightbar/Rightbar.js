@@ -180,23 +180,24 @@ export default function Rightbar({ explore, profile }) {
                         </div>
                         <div className="all_users">
                             <h3>All Users</h3>
-                            <br />
-                            {allUsers?.map(e => {
-                                return (
-                                    <Link key={e._id} to={`/profile/${e?._id}`} style={{ color: "var(--text-color)", textDecoration: "none" }}>
-                                        <div className="mid_all_users">
-                                            <div className="users_images">
-                                                <img src={`${REACT_APP_API_URL}/${e.profilePicture}`} alt="" />
+                            <div style={{ display: "grid", gap: "10px" }}>
+                                {allUsers?.map(e => {
+                                    return (
+                                        <Link key={e._id} to={`/profile/${e?._id}`} style={{ color: "var(--text-color)", textDecoration: "none" }}>
+                                            <div className="mid_all_users">
+                                                <div className="users_images">
+                                                    <img src={`${REACT_APP_API_URL}/${e.profilePicture}`} alt="" />
+                                                </div>
+                                                <div className="users_name" style={{ display: "grid", gap: ".3rem" }}>
+                                                    <p>{e?.name}</p>
+                                                    <p style={{ fontSize: "13px", fontFamily: "sans-serif" }}>Follower : {e?.followers?.length}</p>
+                                                    <p style={{ fontSize: "13px", fontFamily: "sans-serif" }}>Following : {e?.followings?.length}</p>
+                                                </div>
                                             </div>
-                                            <div className="users_name" style={{ display: "grid", gap: ".3rem" }}>
-                                                <p>{e?.name}</p>
-                                                <p style={{ fontSize: "13px", fontFamily: "sans-serif" }}>Follower : {e?.followers?.length}</p>
-                                                <p style={{ fontSize: "13px", fontFamily: "sans-serif" }}>Following : {e?.followings?.length}</p>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                )
-                            })}
+                                        </Link>
+                                    )
+                                })}
+                            </div>
                             {[1, 2, 3].map(e => {
                                 return (
                                     <Link key={e} to='/profile/23iri90hf2fi32' style={{ color: "var(--text-color)", textDecoration: "none" }}>
