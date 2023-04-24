@@ -47,6 +47,7 @@ export default function Homepage({ user }) {
             if (id) {
                 axios.get(`${REACT_APP_API_URL}/api/tweet/alltweet`)
                     .then((data) => {
+
                         const tweets = data.data.tweets;
                         setAllTweets(tweets.sort(function (a, b) {
                             return new Date(b.createdAt) - new Date(a.createdAt);

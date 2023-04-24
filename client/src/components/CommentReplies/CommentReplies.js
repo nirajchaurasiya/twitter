@@ -24,7 +24,7 @@ export default function CommentReplies({ e, post, index }) {
             else {
                 axios.post(`${REACT_APP_API_URL}/api/tweet/tweets/${post._id}/comment/${cmtuserId}/reply/${index}`, replyData)
                     .then((data) => {
-                        // if (data.data.status === "1") return fetchPosts(postId)
+                        window.location.reload();
                     })
                     .catch((err) => {
                         console.log("Err")
